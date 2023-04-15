@@ -1,0 +1,136 @@
+* {
+  padding : 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #E9E1D3;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #C92D1F;
+}
+
+h2 {
+  font-family: 'Crimson Text', serif;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  overflow: hidden;
+
+  &:first-child {
+    border-top: .2vw solid #C92D1F;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: .2vw;
+    background: #C92D1F;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    bottom: 0;
+    transition: transform 1s ease-out;
+    transform-origin: left;
+  }
+
+  &.visible {
+    &:before {
+      transform: scaleX(1);
+    }
+    .item__content {
+      transform: translateY(0);
+    }
+
+    opacity: 1;
+  }
+
+  &:hover {
+    .item__content {
+      color: white;
+    }
+    .item__background {
+      &:after {
+        transform: translateY(-100%);
+      }
+        background-size: 120%;
+    }
+  }
+
+  .item__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: background-size .5s ease-out;
+
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.2);
+      transition: background .5s ease-out;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      //transform: translateY(-20%);
+      background: #E9E1D3;
+      transition: transform .3s ease-out;
+    }
+  }
+
+    .item__content {
+      display: flex;
+      width: 100%;
+      padding: 0 3vw;
+      height: 16vw;
+      align-items: center;
+      transform: translateY(20%);
+      transition: all ease-out .5s, color ease-in-out .3s;
+      cursor: pointer;
+    }
+
+    .item__number {
+      font-weight: 500;
+      text-decoration: underline;
+      margin-right: 2vw;
+      margin-top: 4vw;
+      font-size: 2vw;
+      align-self: flex-start;
+    }
+
+    .item__metas {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      margin-top: 2.8vw;
+    }
+
+    span {
+    font-weight: 300;
+    font-size: 1vw;
+    text-transform: uppercase;
+    letter-spacing: 0.1vw;
+  }
+
+   h2 {
+    font-size: 7vw;
+    font-weight: 400;
+  }
+
+  strong {
+      font-weight: 700;
+      font-size: 1.5vw;
+  }
+}

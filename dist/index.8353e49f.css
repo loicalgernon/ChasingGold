@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #c92d1f;
+  background: #e9e1d3;
+  font-family: Space Grotesk, sans-serif;
+}
+
+h2 {
+  font-family: Crimson Text, serif;
+}
+
+.item {
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.item:first-child {
+  border-top: .2vw solid #c92d1f;
+}
+
+.item:before {
+  content: "";
+  height: .2vw;
+  width: 100%;
+  transform-origin: 0;
+  background: #c92d1f;
+  transition: transform 1s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+}
+
+.item.visible {
+  opacity: 1;
+}
+
+.item.visible:before {
+  transform: scaleX(1);
+}
+
+.item.visible .item__content {
+  transform: translateY(0);
+}
+
+.item:hover .item__content {
+  color: #fff;
+}
+
+.item:hover .item__background {
+  background-size: 120%;
+}
+
+.item:hover .item__background:after {
+  transform: translateY(-100%);
+}
+
+.item .item__background {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-size .5s ease-out;
+  position: absolute;
+}
+
+.item .item__background:before {
+  content: "";
+  background: #0003;
+  transition: background .5s ease-out;
+  position: absolute;
+  inset: 0;
+}
+
+.item .item__background:after {
+  content: "";
+  background: #e9e1d3;
+  transition: transform .3s ease-out;
+  position: absolute;
+  inset: 0;
+}
+
+.item .item__content {
+  width: 100%;
+  height: 16vw;
+  cursor: pointer;
+  align-items: center;
+  padding: 0 3vw;
+  transition: all .5s ease-out, color .3s ease-in-out;
+  display: flex;
+  transform: translateY(20%);
+}
+
+.item .item__number {
+  align-self: flex-start;
+  margin-top: 4vw;
+  margin-right: 2vw;
+  font-size: 2vw;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.item .item__metas {
+  text-align: right;
+  flex-direction: column;
+  margin-top: 2.8vw;
+  margin-left: auto;
+  display: flex;
+}
+
+.item span {
+  text-transform: uppercase;
+  letter-spacing: .1vw;
+  font-size: 1vw;
+  font-weight: 300;
+}
+
+.item h2 {
+  font-size: 7vw;
+  font-weight: 400;
+}
+
+.item strong {
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=index.8353e49f.css.map */
